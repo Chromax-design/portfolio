@@ -15,6 +15,7 @@ const RecentBlog = () => {
             <Link
               className="relative flex items-center justify-center mb-10"
               href={""}
+              key={post.id}
             >
               <div className="relative h-full w-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
                 <img
