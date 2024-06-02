@@ -10,11 +10,10 @@ const RecentBlog = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post) => (
-          <div className="mt-10 rounded-3xl h-full w-full p-4 overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20">
+          <div className="mt-10 rounded-3xl h-full w-full p-4 overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20" key={post.id}>
             <Link
               className="relative flex items-center justify-center mb-10"
               href={""}
-              key={post.id}
             >
               <div className="relative h-full w-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
                 <img
