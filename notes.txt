@@ -1,0 +1,19 @@
+1. After you're done with the project, you can Ignore typescript build errors by going into the {next.config.mjs} file and adding the following:
+
+    ####
+        typescript: {
+            ignoreBuildErrors: true
+        }
+    ####
+
+2. Also remove the sentry example example file and also its api file, as they are not needed 
+
+3. For this project, libraries used include:
+    - Acernity UI
+    - Sentry 
+    - Tailwind CSS
+    - React lottie
+    - React icons
+    - Next js with Typescript
+
+4. I couldn't use the three js feature of Acernity because it crashed my browser
