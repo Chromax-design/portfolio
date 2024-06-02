@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, CardDescription, CardTitle } from "./ui/CardEffect";
 import { posts } from "@/data";
 import Link from "next/link";
 
@@ -11,7 +10,7 @@ const RecentBlog = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post) => (
-          <Card className="mt-10">
+          <div className="mt-10 rounded-3xl h-full w-full p-4 overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20">
             <Link
               className="relative flex items-center justify-center mb-10"
               href={""}
@@ -26,12 +25,12 @@ const RecentBlog = () => {
               </div>
             </Link>
             <Link href={""}>
-              <CardTitle className="text-lg">{post.title}</CardTitle>
+              <h4 className="text-lg text-zinc-100 font-bold tracking-wide mt-4">{post.title}</h4>
             </Link>
-            <CardDescription className=" sm:text-base">
+            <p className=" sm:text-base mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm">
               {post.des}
-            </CardDescription>
-          </Card>
+            </p>
+          </div>
         ))}
       </div>
     </div>
