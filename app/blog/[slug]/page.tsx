@@ -54,9 +54,9 @@ const BlogDetails = async ({ params }: Props) => {
     <section className="max-w-5xl mx-auto py-20">
       <div className="mb-10">
         <p className="uppercase text-sm font-medium tracking-wide">
-          {formatDate(new Date().toString())}
+          {formatDate(new Date(singlePost?._createdAt ?? '').toString())}
         </p>
-        <h1 className="text-5xl capitalize mx-auto font-semibold mt-1">
+        <h1 className="text-4xl sm:text-5xl capitalize mx-auto font-semibold mt-1">
           {singlePost?.title}
         </h1>
       </div>
