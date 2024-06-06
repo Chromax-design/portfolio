@@ -23,6 +23,10 @@ export const navItems = [
   { name: "Contact", link: "#contact", icon: createElement(FaEnvelope) },
 ];
 
+export const blogNavItems = [
+  {name: 'Back to Home page', link: '/', icon: createElement(FaHome)},
+]
+
 export const gridItems = [
   {
     id: 1,

@@ -2,6 +2,7 @@ import React from "react";
 // import { posts } from "@/data";
 import Link from "next/link";
 import { getPosts } from "@/schemaTypes/sanity-utils";
+import { PostsType } from "@/utils/types";
 
 const RecentBlog = async () => {
   const posts = await getPosts();
@@ -13,24 +14,24 @@ const RecentBlog = async () => {
         My <span className="text-purple">recent articles</span>
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {posts.map((post: any) => (
+        {posts?.map((post: PostsType) => (
           <div
             className="mt-10 rounded-3xl h-full w-full p-4 overflow-hidden border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20"
             key={post._id}
           >
             <Link
               className="relative flex items-center justify-center mb-10"
-              href={""}
+              href={`blog/${post.slug}`}
             >
               <div className="relative h-full w-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
                 <img
                   src={post.image.imageUrl}
-                  alt={post.alt}
-                  className="w-full hover:scale-105 transition aspect-video"
+                  alt={post.image.alt}
+                  className="w-full hover:scale-105 transition aspect-video rounded-3xl"
                 />
               </div>
             </Link>
-            <Link href={""}>
+            <Link href={`blog/${post.slug}`}>
               <h4 className="text-lg text-zinc-100 font-bold tracking-wide mt-2">
                 {post.title}
               </h4>
