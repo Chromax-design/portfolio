@@ -1,10 +1,11 @@
-import { FloatingNav } from "@/components/ui/FloatingNav";
 import { blogNavItems, socialMedia } from "@/data";
-import { Open_Sans } from "next/font/google";
+import { Outfit } from "next/font/google";
+import Link from "next/link";
+import { FaArrowLeft } from "react-icons/fa6";
 
-const OpenSans = Open_Sans({
+const OutfitFont = Outfit({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export default function RootLayout({
@@ -14,8 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-clip mx-auto sm:px-10 px-5">
-      <div className={OpenSans.className}>
-        <FloatingNav navItems={blogNavItems} />
+      <div className={OutfitFont.className}>
+        <div className="mt-10">
+          <Link href={"/"} className="flex items-center gap-5">
+            <FaArrowLeft /> Go back
+          </Link>
+        </div>
         {children}
         <div className="flex mt-16 md:flex-row flex-col justify-between items-center gap-2 pb-10">
           <p className="text-sm md:font-normal font-light">

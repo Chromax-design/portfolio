@@ -1,20 +1,10 @@
 import { getSinglePost } from "@/schemaTypes/sanity-utils";
 import formatDate from "@/utils/formatDate";
-import { Metadata } from "next";
 import { PortableText, PortableTextComponents } from "next-sanity";
-import React from "react";
+import React, { FC } from "react";
 
 type Props = {
   params: { slug: string };
-};
-
-export const metadata: Metadata = {
-  title: `Chromax Dev portfolio`,
-  description:
-    "Explore the portfolio of Godskey, a skilled web developer specializing in creating responsive, user-friendly websites. Discover innovative projects showcasing expertise in HTML, CSS, JavaScript, and modern frameworks. Transform your online presence with professional web development services",
-    icons:{
-      icon: '/favicon.png'
-    }
 };
 
 const components: PortableTextComponents = {
@@ -39,11 +29,22 @@ const components: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => <ul className="mt-4">{children}</ul>,
-    number: ({ children }) => <ol className="mt-2 md:text-lg md:leading-8">{children}</ol>,
+    number: ({ children }) => (
+      <ol className="mt-2 md:text-lg md:leading-8">{children}</ol>
+    ),
   },
   listItem: {
-    bullet: ({children}) => <li style={{listStyleType: 'disclosure-closed'}}>{children}</li>,
-    number: ({children}) => <li style={{listStyleType: 'disclosure-closed'}} className="mt-3 list-inside">{children}</li>,
+    bullet: ({ children }) => (
+      <li style={{ listStyleType: "disclosure-closed" }}>{children}</li>
+    ),
+    number: ({ children }) => (
+      <li
+        style={{ listStyleType: "disclosure-closed" }}
+        className="mt-3 list-inside"
+      >
+        {children}
+      </li>
+    ),
   },
 };
 
@@ -54,7 +55,7 @@ const BlogDetails = async ({ params }: Props) => {
     <section className="max-w-5xl mx-auto py-20">
       <div className="mb-10">
         <p className="uppercase text-sm font-medium tracking-wide">
-          {formatDate(new Date(singlePost?._createdAt ?? '').toString())}
+          {formatDate(new Date(singlePost?._createdAt ?? "").toString())}
         </p>
         <h1 className="text-4xl sm:text-5xl capitalize mx-auto font-semibold mt-1">
           {singlePost?.title}

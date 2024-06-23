@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Outfit} from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import Nav from "@/components/ui/Nav";
+import { navItems } from "@/data";
 
-const inter = Inter({ subsets: ["latin"] });
+const OutfitFont = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
 
 export const metadata: Metadata = {
   title: "Chromax Dev portfolio",
@@ -21,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={OutfitFont.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"

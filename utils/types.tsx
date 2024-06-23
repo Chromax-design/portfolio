@@ -12,6 +12,12 @@ export type PostsType = {
   desc: string;
 };
 
+export type NavItemType ={
+  name: string;
+  link: string;
+  icon: React.ReactNode
+}
+
 export type SinglePostType = PostsType & {
   content : PortableTextBlock[]
 }

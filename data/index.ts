@@ -1,3 +1,4 @@
+import { NavItemType } from "@/utils/types";
 import { createElement } from "react";
 import {
   FaHome,
@@ -7,7 +8,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 
-export const navItems = [
+export const navItems: NavItemType[] = [
   { name: "Home", link: "#", icon: createElement(FaHome) },
   { name: "About", link: "#about", icon: createElement(FaUser) },
   {
