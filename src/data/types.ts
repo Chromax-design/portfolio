@@ -14,3 +14,9 @@ export type SocialTypes = {
 };
 
 export type BlogPostTypes = Blog;
+
+export type TocTypes = {
+  level: string;
+  text: string;
+  slug: string;
+};

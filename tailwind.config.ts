@@ -20,6 +20,6 @@ const config: Config = {
       manrope: ["var(--font-manrope)"],
     },
   },
-  plugins: [require("@tailwindcss/forms")],
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
 export default config;
