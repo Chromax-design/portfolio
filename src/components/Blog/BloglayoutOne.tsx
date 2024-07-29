@@ -20,7 +20,7 @@ const BloglayoutOne = ({ blogPost }: { blogPost: BlogPostTypes }) => {
         <>
           {blogPost.tags && blogPost.tags.length > 0 ? (
             <Tags
-              link={`/categories/${blogPost.tags[0]}`}
+              link={`${blogPost.tags[0]}`}
               name={blogPost.tags[0]}
               className="px-6 text-sm py-2 !border"
             />

@@ -22,13 +22,8 @@ const HomeCoverSection = ({ blogPosts }: { blogPosts: BlogPostTypes[] }) => {
         />
         <div className="w-3/4 p-16 flex flex-col items-start justify-center z-0 text-light capitalize">
           <>
-            {heroPost.tags && heroPost.tags.length > 0 ? (
-              <Tags
-                link={`/categories/${heroPost.tags[0]}`}
-                name={heroPost.tags[0]}
-              />
-            ) : (
-              <Link href={"/categories/all"}>general</Link>
+            {heroPost.tags && heroPost.tags.length > 0 && (
+              <Tags link={`${heroPost.tags[0]}`} name={heroPost.tags[0]} />
             )}
           </>
           <Link href={heroPost.url} className="mt-6">

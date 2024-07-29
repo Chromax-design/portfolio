@@ -5,6 +5,14 @@ import { TocTypes } from "@/data/types";
 import { allBlogs } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
+import GithubSlugger from "github-slugger";
+
+const slugger = new GithubSlugger();
+export async function generateStaticParams() {
+  return allBlogs.map((singleItem) => ({
+    slug: singleItem._raw.flattenedPath,
+  }));
+}
 
 const Singlepost = ({ params }: { params: { slug: string } }) => {
   const { slug } = params;
@@ -60,9 +68,11 @@ const Singlepost = ({ params }: { params: { slug: string } }) => {
                       data-level={item.level}
                       className=" data-[level=two]:pl-0 data-[level=two]:pt-2 data-[level=two]:border-t border-solid border-dark/40 data-[level=three]:pl-3 flex items-center justify-start gap-2"
                     >
-                      {
-                        item.level == 'three' && <span className=" flex w-1 h-1 rounded-full bg-dark">&nbsp;</span>
-                      }
+                      {item.level == "three" && (
+                        <span className=" flex w-1 h-1 rounded-full bg-dark">
+                          &nbsp;
+                        </span>
+                      )}
                       <span className="hover:underline">{item.text}</span>
                     </a>
                   </li>
