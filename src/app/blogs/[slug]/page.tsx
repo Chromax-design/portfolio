@@ -2,16 +2,81 @@ import BlogDetails from "@/components/Blog/BlogDetails";
 import RenderMdx from "@/components/Blog/RenderMdx";
 import Tags from "@/components/Elements/Tags";
 import { TocTypes } from "@/data/types";
-import { allBlogs } from "contentlayer/generated";
+import { siteMetadata } from "@/utils/siteMetaData";
+import { allBlogs, ImageFieldData } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
-import GithubSlugger from "github-slugger";
 
-const slugger = new GithubSlugger();
 export async function generateStaticParams() {
   return allBlogs.map((singleItem) => ({
     slug: singleItem._raw.flattenedPath,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const singlePost = allBlogs.find(
+    (singleItem) => singleItem._raw.flattenedPath === slug
+  );
+  if (!singlePost) {
+    return;
+  }
+
+  const publishedAt = new Date(singlePost.publishedAt).toISOString();
+  const modifiedAt = new Date(
+    singlePost.updatedAt || singlePost.publishedAt
+  ).toISOString();
+
+  let imageList: string[] | ImageFieldData = [siteMetadata.socialBanner];
+  if (singlePost.image) {
+    imageList =
+      typeof singlePost.image.filePath === "string"
+        ? [
+            `${siteMetadata.siteUrl}${singlePost.image.filePath.replace(
+              "../public",
+              ""
+            )}`,
+          ]
+        : singlePost.image;
+  }
+
+  const ogImages = Array.isArray(imageList)
+    ? imageList.map((img) => {
+        return {
+          url: img.includes("https") ? img : `${siteMetadata.siteUrl}${img}`,
+        };
+      })
+    : [];
+
+  const author = singlePost?.author ? singlePost.author : siteMetadata.author;
+
+  return {
+    title: singlePost.title,
+    description: singlePost.description,
+    openGraph: {
+      title: singlePost.title,
+      description: "The React Framework for the Web",
+      url: `${siteMetadata.siteUrl}${singlePost.url}}`,
+      siteName: siteMetadata.title,
+      images: ogImages,
+      locale: "en_US",
+      type: "article",
+      publishedTime: publishedAt,
+      modifiedTime: modifiedAt,
+      author: author
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: singlePost.title,
+      description: singlePost.description,
+      creator: author,
+      images: ogImages,
+    },
+  };
 }
 
 const Singlepost = ({ params }: { params: { slug: string } }) => {

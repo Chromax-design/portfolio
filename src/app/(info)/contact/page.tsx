@@ -1,6 +1,13 @@
 import { ContactForm } from "@/components/Contact/ContactFormcomponent";
 import LottieAnimation from "@/components/Contact/LottieAnimation";
-import React from "react";
+import { siteMetadata } from "@/utils/siteMetaData";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteMetadata.siteUrl),
+  title: "Contact me",
+  description: `Get in touch with Godskey, a skilled web developer, to discuss your web development needs. Contact me for project inquiries, collaborations, or any questions you have at ${siteMetadata.email} . Let's create something amazing together!`,
+};
 
 const ContactPage = () => {
   return (

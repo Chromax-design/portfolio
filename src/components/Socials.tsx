@@ -12,6 +12,7 @@ const Socials = ({ isWhite }: { isWhite?: boolean }) => {
             href={item.link}
             className={`${item.style} text-2xl hover:scale-125 transition-all duration-200`}
             key={item.id}
+            target="_blank"
           >
             {item.icon}
           </a>

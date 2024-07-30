@@ -20,6 +20,21 @@ export async function generateStaticParams() {
   return paths;
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+
+  return {
+    title: `${slug.replaceAll("-", " ")} Blogs`,
+    description: `learn more about ${
+      slug === "all" ? "web development" : slug.replaceAll("-", "")
+    } through our collection of export blogs and tutorials`,
+  };
+}
+
 const Categorypage = ({ params }: { params: { slug: string } }) => {
   const allCategories = ["all"];
   const blogs = allBlogs.filter((blog) => {

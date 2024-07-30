@@ -6,7 +6,7 @@ const Logo = () => {
     <Link href={"/"} className="flex items-center text-dark gap-2">
       <div className="w-12 rounded-full overflow-hidden border border-solid border-dark">
         <Image
-          src={"/profile-img.png"}
+          src={"/profile-img.jpg"}
           alt="Chromax dev"
           className="w-full h-auto rounded-full"
           width={100}
