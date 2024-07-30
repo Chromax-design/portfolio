@@ -19,6 +19,15 @@ const config: Config = {
       inter: ["var(--font-inter)"],
       manrope: ["var(--font-manrope)"],
     },
+    animation:{
+      roll: "roll 24s linear infinite"
+    },
+    keyframes:{
+      roll:{
+        '0%': {transform: "translateX(100%)"},
+        '100%': {transform: "translateX(-100%)"},
+      }
+    }
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
