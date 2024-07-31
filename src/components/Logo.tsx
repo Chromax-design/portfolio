@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const Logo = () => {
   return (
-    <Link href={"/"} className="flex items-center text-dark gap-2">
-      <div className="w-12 rounded-full overflow-hidden border border-solid border-dark">
+    <Link href={"/"} className="flex items-center text-dark gap-2 dark:text-light">
+      <div className="w-11 md:w-12 rounded-full overflow-hidden border-solid border-dark dark:border-light border">
         <Image
           src={"/profile-img.jpg"}
           alt="Chromax dev"
@@ -13,7 +13,7 @@ const Logo = () => {
           height={100}
         />
       </div>
-      <span className=" font-bold text-xl">Chromax</span>
+      <span className=" font-bold text-lg md:text-xl dark:font-semibold">Chromax</span>
     </Link>
   );
 };

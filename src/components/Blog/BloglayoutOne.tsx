@@ -16,26 +16,23 @@ const BloglayoutOne = ({ blogPost }: { blogPost: BlogPostTypes }) => {
         height={blogPost.image?.height}
         className="w-full h-full object-center object-cover rounded-xl cursor-pointer group-hover:scale-105 transition-all duration-300"
       />
-      <div className="absolute bottom-0 p-10 z-20 w-full">
+      <div className="absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20 w-full">
         <>
-          {blogPost.tags && blogPost.tags.length > 0 ? (
+          {blogPost.tags && blogPost.tags.length > 0 && (
             <Tags
               link={`${blogPost.tags[0]}`}
               name={blogPost.tags[0]}
-              className="px-6 text-sm py-2 !border"
+              className="px-6 text-xs sm:text-sm py-1 sm:py-2 !border "
             />
-          ) : (
-            <Link href={"/categories/all"}>general</Link>
           )}
         </>
         <Link href={blogPost.url} className="mt-6">
-          <h2 className="font-bold capitalize text-2xl text-light mt-4">
+          <h2 className="font-bold capitalize text-sm xs:text-base sm:text-xl md:text-2xl text-light mt-2 sm:mt-4">
             <span className="bg-gradient-to-r from-accent/50 to-accent/50 bg-[length:0px_6px] group-hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
               {blogPost.title}
             </span>
           </h2>
         </Link>
-        
       </div>
     </div>
   );
