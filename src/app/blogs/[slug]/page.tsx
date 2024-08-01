@@ -131,7 +131,7 @@ const Singlepost = ({ params }: { params: { slug: string } }) => {
                     <a
                       href={`#${item.slug}`}
                       data-level={item.level}
-                      className=" data-[level=two]:pl-0 data-[level=two]:pt-2 data-[level=two]:border-t border-solid border-dark/40 data-[level=three]:pl-3 flex items-center justify-start gap-2"
+                      className=" data-[level=two]:pl-0 data-[level=two]:pt-2 data-[level=two]:border-t border-solid border-dark/40 data-[level=three]:pl-4 sm:data-[level=three]:pl-6 flex items-center justify-start gap-2"
                     >
                       {item.level == "three" && (
                         <span className=" flex w-1 h-1 rounded-full bg-dark">
