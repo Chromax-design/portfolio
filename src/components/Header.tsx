@@ -8,6 +8,7 @@ import { GithubIcon, LinkedInIcon, TwitterIcon } from "@/utils/Icons";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/utils/cn";
 import ThemeToggler from "./ThemeToggler";
+import { siteMetadata } from "@/utils/siteMetaData";
 
 const Header = () => {
   const [showNav, setShowNav] = useState<boolean>(false);
@@ -67,13 +68,13 @@ const Header = () => {
       </button>
 
       <div className="hidden sm:flex gap-2">
-        <a href="" className="w-6 h-6">
+        <a href={siteMetadata.linkedin} className="w-6 h-6">
           <LinkedInIcon className="hover:scale-125 duration-200 transition-all" />
         </a>
-        <a href="" className="w-6 h-6">
+        <a href={siteMetadata.twitter} className="w-6 h-6">
           <TwitterIcon className="hover:scale-125 duration-200 transition-all" />
         </a>
-        <a href="" className="w-6 h-6">
+        <a href={siteMetadata.github} className="w-6 h-6">
           <GithubIcon className="hover:scale-125 duration-200 transition-all dark:fill-light" />
         </a>
       </div>
