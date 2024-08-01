@@ -11,7 +11,7 @@ const BlogDetails = ({
   slug: string;
 }) => {
   return (
-    <div className="px-10 bg-accent text-light py-2 flex items-center justify-around flex-wrap text-xl font-medium mx-10 rounded-lg gap-6">
+    <div className="px-2 md:px-10 bg-accent dark:bg-accentDark text-light dark:text-dark py-2 flex items-center justify-around flex-wrap text-lg sm:text-xl font-medium mx-5 md:mx-10 rounded-lg gap-6">
       <time>{format(parseISO(singlePost.publishedAt), "LLLL d, yyy")}</time>
       <ViewCounter slug={slug} noCount={false} showCount={true} />
       <div>{singlePost.readingTime?.text}</div>

@@ -15,7 +15,7 @@ const Tags = ({
     <Link
       href={`/categories/${slug(link)}`}
       className={cn(
-        "inline-block capitalize py-3 px-10 bg-dark text-light rounded-full font-semibold border-solid border-light border-2 hover:scale-105 transition-all duration-200",
+        "inline-block capitalize py-2 sm:py-3 px-6 sm:px-10 bg-dark text-light rounded-full font-semibold border-solid border-light border-2 hover:scale-105 transition-all duration-200 text-sm sm:text-base",
         className
       )}
     >
