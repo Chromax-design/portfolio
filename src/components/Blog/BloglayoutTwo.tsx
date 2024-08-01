@@ -18,6 +18,7 @@ const BloglayoutTwo = ({ blogPost }: { blogPost: BlogPostTypes }) => {
           width={blogPost.image?.width}
           height={blogPost.image?.height}
           className=" aspect-square w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
       </Link>
       <div className="col-span-12 lg:col-span-8 w-full">

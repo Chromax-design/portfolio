@@ -84,9 +84,47 @@ const Singlepost = ({ params }: { params: { slug: string } }) => {
   const singlePost = allBlogs.find(
     (singleItem) => singleItem._raw.flattenedPath === slug
   );
-  // console.log(singlePost)
+
+  let imageList: string[] | ImageFieldData = [siteMetadata.socialBanner];
+  if (singlePost?.image) {
+    imageList =
+      typeof singlePost.image.filePath === "string"
+        ? [
+            `${siteMetadata.siteUrl}${singlePost.image.filePath.replace(
+              "../public",
+              ""
+            )}`,
+          ]
+        : singlePost.image;
+  }
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: singlePost?.title,
+    description: singlePost?.description,
+    image: imageList,
+    datePublished: new Date(
+      singlePost?.publishedAt ? singlePost?.publishedAt : ""
+    ).toISOString(),
+    dateModified: new Date(
+      singlePost?.updatedAt ? singlePost?.updatedAt : ""
+    ).toISOString(),
+    author: [
+      {
+        "@type": "Person",
+        name: singlePost?.author ? singlePost.author : siteMetadata.author,
+        url: `${siteMetadata.siteUrl}/profile-img.jpg`,
+      },
+    ],
+  };
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <article>
       <div className="mb-8 text-center relative w-full h-[70vh] bg-dark">
         <div className=" w-full z-10 flex flex-col items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -112,6 +150,8 @@ const Singlepost = ({ params }: { params: { slug: string } }) => {
           width={singlePost?.image?.width}
           height={singlePost?.image?.height}
           className="w-full h-full object-cover object-center"
+          priority
+          sizes="100vw"
         />
       </div>
       {singlePost && <BlogDetails singlePost={singlePost} slug={slug} />}
@@ -149,6 +189,7 @@ const Singlepost = ({ params }: { params: { slug: string } }) => {
         {singlePost && <RenderMdx singlePost={singlePost} />}
       </div>
     </article>
+    </>
   );
 };
 

@@ -2,6 +2,11 @@
 
 import { withContentlayer } from "next-contentlayer";
 
-const nextConfig = { reactStrictMode: true };
+const nextConfig = {
+  reactStrictMode: true,
+  compiler: {
+    removeConsole: true,
+  },
+};
 
 export default withContentlayer(nextConfig);

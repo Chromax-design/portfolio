@@ -15,6 +15,7 @@ const BloglayoutOne = ({ blogPost }: { blogPost: BlogPostTypes }) => {
         width={blogPost.image?.width}
         height={blogPost.image?.height}
         className="w-full h-full object-center object-cover rounded-xl cursor-pointer group-hover:scale-105 transition-all duration-300"
+        sizes="(max-width: 1180px) 100vw, 50vw"
       />
       <div className="absolute bottom-0 p-4 xs:p-6 sm:p-10 z-20 w-full">
         <>
@@ -28,7 +29,7 @@ const BloglayoutOne = ({ blogPost }: { blogPost: BlogPostTypes }) => {
         </>
         <Link href={blogPost.url} className="mt-6">
           <h2 className="font-bold capitalize text-sm xs:text-base sm:text-xl md:text-2xl text-light mt-2 sm:mt-4">
-            <span className="bg-gradient-to-r from-accent/50 to-accent/50 bg-[length:0px_6px] group-hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
+            <span className="bg-gradient-to-r from-accent/50 to-accent/50 dark:from-accentDark/50 dark:to-accentDark/50 bg-[length:0px_6px] group-hover:bg-[length:100%_6px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500">
               {blogPost.title}
             </span>
           </h2>

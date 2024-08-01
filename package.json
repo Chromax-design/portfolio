@@ -22,7 +22,6 @@
     "github-slugger": "^2.0.0",
     "next": "14.2.5",
     "next-contentlayer": "^0.3.4",
-    "next-sitemap": "^4.2.2",
     "next-themes": "^0.3.0",
     "postcss": "8.4.31",
     "react": "^18",
