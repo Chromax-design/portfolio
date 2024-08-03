@@ -3,6 +3,7 @@
 import { useForm, Resolver, SubmitHandler } from "react-hook-form";
 import Link from "next/link";
 import { GithubIcon, LinkedInIcon, TwitterIcon } from "@/utils/Icons";
+import { siteMetadata } from "@/utils/siteMetaData";
 
 type FormValues = {
   email: string;
@@ -55,13 +56,16 @@ const Footer = () => {
         />
       </form>
       <div className="flex gap-2 mt-8">
-        <a href="" className="w-6 h-6">
+        <a href={siteMetadata.linkedin} className="w-6 h-6">
           <LinkedInIcon className="hover:scale-125 duration-200 transition-all" />
         </a>
-        <a href="" className="w-6 h-6">
+        <a href={siteMetadata.twitter} className="w-6 h-6">
           <TwitterIcon className="hover:scale-125 duration-200 transition-all" />
         </a>
-        <a href="" className="w-6 h-6 fill-light dark:fill-dark">
+        <a
+          href={siteMetadata.github}
+          className="w-6 h-6 fill-light dark:fill-dark"
+        >
           <GithubIcon className="hover:scale-125 duration-200 transition-all" />
         </a>
       </div>
