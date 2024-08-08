@@ -1,0 +1,233 @@
+---
+title: "Introduction to TypeScript"
+description: "Discover TypeScript, a potent superset of JavaScript that enhances it with sophisticated features like static typing. Find out how TypeScript may streamline your development process and raise the caliber of your code."
+image: "../../public/blogs/typescript2.jpg"
+publishedAt: "2024-08-03"
+updatedAt: "2024-08-08"
+author: "Chromax"
+isPublished: true
+tags:
+- typescript
+---
+
+## What is Typescript?
+
+TypeScript was created in response to JavaScript's limitations for developing large-scale applications at Microsoft and among its external customers. Due to the difficulty of working with complex JavaScript code, there was a demand for custom tooling to make developing JavaScript components easier.
+
+> It is a typed superset of JavaScript that, when you compile, produces plain JavaScript, and that plain JavaScript can run in any browser, on any host, and on any platform.
+
+<cite>— Anders Hejlsberg (creator of TypeScript at Microsoft).</cite>
+
+TypeScript provides static type checking, which allows you to validate your JavaScript ahead of time. JavaScript is a dynamic language that allows us to do crazy things like reference variables that don't exist or work with objects with unknown shapes. The code is interpreted by a browser, Node JS, or another application. However, if your code is broken, you won't notice it until runtime, when the browser throws an error. TypeScript, which extends JavaScript with types, prevents errors like this from occurring.
+
+
+## TypeScript, a superset of JavaScript.
+
+This simply means that it performs the same functions as JavaScript, but with some additional features that are entirely optional.
+
+One of these features is static typing, which allows you to annotate your code with types. This has made developers' jobs easier by allowing them to include Type Safety in their applications.
+
+TypeScript additionally provides a compiler (via its `tsconfig.json` file), which checks for type errors and other issues before the code executes.
+
+## What distinguishes TypeScript from JavaScript?
+
+These languages appear very similar to one another. So, what is the difference between them?
+
+1.  JavaScript is dynamically typed, whereas TypeScript is statically typed.
+2.  JavaScript is a scripting language used to make web pages interactive, whereas TypeScript is an extended version of JavaScript. 
+3.  TypeScript code requires compilation, whereas JavaScript code does not.
+4.  TypeScript code requires prototyping, whereas JavaScript code does not.
+5.  In TypeScript, scenes (e.g., types and interfaces) are used to explain the data you're working with, whereas     there are no such concepts in JavaScript. 
+6.  Generics and JavaScript capabilities, along with TypeScript's strong type system, make it an excellent choice for complex applications. JavaScript, however, works well for simpler projects.
+7.  Because JavaScript is an interpreted language, faults can only be identified and fixed during run-time, whereas in TypeScript, errors can be found and repaired during build time.
+8.  While JavaScript does not require build setup, TypeScript requires it for static type definitions.
+
+
+## Advantages of TypeScript over JavaScript
+
+There are several distinctive advantages to choosing TypeScript over JavaScript. They include:
+
+1. TypeScript identifies compilation errors during development (i.e., before code runs). This reduces the chances of runtime errors. In contrast, JavaScript is an interpreted language, which means that there is no need to compile it. As a result, it must be run to ensure that it is genuine. If there is an error, you'll have to spend hours looking for the faults in the code (if the code is bulky). In typescript, error checking is provided through the typescript compiler so that if there's any mistake, it will compile the code and generate compilation errors. This aids in the detection of mistakes prior to the execution of the script.
+2. TypeScript offers static or strong typing. This means it allows type correctness checks during compilation. JavaScript does not have a powerful static typing system. TypeScript comes with an optional static typing inference system. The TLS (TypeScript Language Service) can deduce the type of variable defined with no type based on its value.
+3. TypeScript of course has extra features, including those from ES6.
+
+## Disadvantages of TypeScript
+
+Despite its great features, TypeScript has its flaws too. And that's because there are quite some things that might annoy developers. Let's explore:
+
+1. 	Browsers can't interpret TypeScript. Hence, it needs to be compiled into JavaScript (which the browser understands). This extra step can be seen as an inconvenience for developers, and this is the reason why many of them avoid working with TypeScript.
+2. 	Learning TypeScript can be more challenging compared to JavaScript. It demands more scripting expertise; therefore, developers prefer mastering JavaScript first before working with TypeScript.
+3. 	TypeScript requires you to write more code just to satisfy the compiler, which leads to certain developers trying to avoid asserting types.
+
+## So, why should I use TypeScript?
+
+In actuality, the choice of whether to utilize TypeScript or JavaScript is totally up to you and will also rely on the kind of work or project you intend to undertake. Due to its versatility, abundance of features, and vibrant community, JavaScript is still a popular scripting language among developers. For small to medium-sized projects, such as creating interactive websites, it works perfectly. Like a spartan version of JavaScript, TypeScript can be a better option for larger projects requiring a lot of code. It can do things that JavaScript cannot and is made for complex projects.
+
+## Features of TypeScript
+
+TypeScript was created to provide many capabilities that JavaScript developers had long yearned for. Strong typing reduced error rates and increased scalability in JavaScript. Among the well-liked attributes are
+
+### 1. Static Typing
+
+Static typing is a programming paradigm in which variables' data types are explicitly stated and validated at compile time rather than during runtime. One of TypeScript's primary functions is to offer static type checking or type safety for JavaScript. This allows us to describe the forms and behaviors of our values as they will appear when our code executes. 
+
+As you are aware, JavaScript is a dynamically typed language, which means that type checks are performed at runtime; therefore, any flaws will not be detected until the program is executed. This static typing feature also improves code predictability and ease of maintenance. Types make your code self-documented and easy to understand, improving code organization and maintainability.
+
+```typescript
+let message: string = "Hello TypeScript";
+
+const greet = (name: string): string =>{
+	return `Hello ${name}`
+}
+```
+
+### 2. Type inference
+
+Type inference is the compiler's ability to automatically guess the type of a variable or function based on its value and context, in the absence of explicit type annotations.
+
+A variable's type can be inferred by Typescript from its usage inside the code or from the value that is assigned to it.
+
+```typescript
+let count = 10 // inferred as number
+```
+
+### 3. Interfaces
+
+Typescript lets you define bespoke interfaces for your types. Interfaces define a specific framework to which all data structures, whether classes, object literals, or other interfaces, can adhere.
+
+```typescript
+interface Person {
+	name: string;
+	age: number;
+}
+
+const person: Person ={
+	name: "Alice",
+	age: 25
+}
+```
+
+### 4. Classes and inheritance
+
+Common object-oriented concepts like classes and inheritance, which were first introduced in ES 2015 (ES6), are fully supported by Typescript. Access modifiers, type annotations to facilitate the expression of relationships between classes and other types, and more syntax were incorporated as well.
+
+```typescript
+class Animal {
+	constructor(public name: string){}
+
+	move(distance: number): void {
+		console.log(`${this.name} moved ${distance} meters`);
+	}
+}
+
+class Dog extends Animal {
+	bark(): void {
+		console.log("woof! woof!!");
+	}
+}
+
+const dog = new Dog("Rex");
+dog.bark();
+dog.move(10);
+```
+
+### 5. Namespaces and modules
+
+Code can be arranged into distinct files, and the usage of external dependencies is made possible via modules. To enable access to functions, interfaces, or variables from other files, we can export them from a module. 
+
+On the other side, namespaces offer a means of organizing code by uniting related elements under a single name. Namespaces allow us to declare functions, interfaces, and nested objects, keep them separate from the global scope, and indicate which of them we want to export. 
+
+These ES6 capabilities are supported by Typescript, which aids in code organization and encapsulation. 
+
+```typescript
+// math.ts
+export const add = (a: number, b: number): number => {
+	return a + b;
+}
+
+// main.ts
+import { add } from './math.ts';
+console.log(add(5, 4));
+```
+
+### 6. Generics
+
+In your Typescript program, Generics is an effective tool for generating reusable components. It makes it possible for a class or type alias function to handle several data types.
+
+```typescript
+const identity = <T>(arg: T): T => {
+	return arg;
+}
+
+let output = identity<string>("Hello world");
+```
+
+### 7. Decorators
+
+Decorators are unique declarations that can be added to classes and methods to change their behavior. Despite being experimental, it is used in frameworks like Angular.
+
+```typescript
+const log = (target: any, key: string) =>{
+	console.log(`${key} was called`);
+}
+
+class Calculator {
+	@log
+	square(num: number): number {
+		return num * num
+	}
+}
+
+const calc = new Calculator ();
+calc.square(2)
+```
+
+
+### 8. Union and intersection types
+
+We may construct new types from preexisting ones thanks to these typescript characteristics, which results in more adaptable and reusable code. 
+
+Intersection merges several types into one, whereas union just permits a variable to be one of several types.
+
+```typescript
+let value: string | number; // union
+value = "Hello";
+value = 42;
+
+interface A {
+	a: string;
+}
+
+interface B {
+	b: number;
+}
+
+type AB = A & B // intersection
+let ab:AB = { a: "Hello", b: 42};
+```
+
+### 9. Type alias
+
+It essentially involves giving a type a name or label so you may use it again and refer to it by that name.
+
+```typescript
+type Point = {
+	x: number;
+	y: number;
+}
+
+let pt: Point = {
+	x: 10,
+	y: 20
+}
+```
+
+## Conclusion
+Learning TypeScript can help you enhance your development speed, code quality, and project scalability. You may design more robust and scalable applications by exploiting its features.
+
+
+
+
+
+
+

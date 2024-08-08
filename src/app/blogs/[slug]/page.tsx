@@ -141,7 +141,7 @@ const Singlepost = ({ params }: { params: { slug: string } }) => {
             {singlePost?.title}
           </h1>
         </div>
-        <div className="absolute top-0 right-0 h-full w-full bg-dark/60 dark:bg-dark/40" />
+        <div className="absolute top-0 right-0 h-full w-full bg-dark/60 dark:bg-dark/70" />
         <Image
           src={singlePost?.image?.filePath.replace("../public", "") || ""}
           alt={singlePost?.title || ""}
